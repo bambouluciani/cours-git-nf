@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des messages!{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-8">
+
+            <h1 class="text-default">Mes messages</h1>
+            <br><br>
+        </div>
+        <div class="col-4 text-right">
+            <a href="{{ path('message_new')}}"> <button type="button" class="btn btn-default">Nouveau message</button></a>
+        </div>
+    </div>
+    
+
+     {% for message in messages %}
+
+    <div class="media">
+  <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder1.jpg" alt="Generic placeholder image">
+  <div class="media-body">
+    <h5 class="mt-0 font-weight-bold">Envoyé(e) par : {{ message.sender.email}}</h5>
+    <h5 class="mt-0 font-weight-bold">Pour : {{ message.receiver.email}}</h5>
+    <h6>Date : {{ message.createdAt|date('d-m-Y H:i')}}</h6>
+    
+    <a href="{{ path('message_show', {'id': message.id}) }}">Voir le détail de mon  message</a>
+    <br><br>
+  </div>
+  <!-- Default button -->
+    <a href="{{ path('message_edit', {'id': message.id}) }}" class="btn btn-default btn-sm">Editer</a>
+    <!-- Default button -->
+    <a href="{{ path('message_delete', { 'id' : message.id})}}" class="btn btn-outline-default waves-effect btn-sm">Supprimer</a>
+</div>
+
+    {% endfor %}
+{% endblock %}
+    
+
+

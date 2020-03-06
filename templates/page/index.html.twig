@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page index{% endblock %}
+
+{% block body %}
+
+<h1 class="text-default text-center">Amis</h1>
+    <br><br><br>
+
+{% for page in pages %}
+<!-- Card Regular -->
+<div class="card card-cascade" style="width:200px;">
+
+  <!-- Card image -->
+  <div class="view view-cascade overlay">
+    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body card-body-cascade text-center">
+
+    <!-- Title -->
+    <h4 class="card-title"><strong>{{ page.name }}</strong></h4>
+    <!-- Subtitle -->
+    <h6 class="font-weight-bold text-secondary py-2">{{ page.description }}</h6>
+    <!-- Text -->
+    <p class="card-text">{{ page.body }} </p>
+
+    <!-- Facebook -->
+    <a href="{{ path('page_show', {'id': page.id}) }}" class="btn btn-default btn-sm">Voir</a>
+    <!-- Twitter -->
+    <a <a href="{{ path('page_edit', {'id': page.id}) }}" class="btn btn-default btn-sm">Editer</a>
+    
+
+  </div>
+
+</div>
+{% endfor %}
+    <a href="{{ path('page_new') }}">Créer nouveau profil</a>
+{% endblock %}
+
+
+    

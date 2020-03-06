@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau message{% endblock %}
+
+{% block body %}
+   
+    {{form_start(form, {'attr': {'class' :'text-center border border-light p-5 mx-5', 'style': 'box-shadow: 1px 1px 15px black;'}})}}
+
+        <!-- Default form subscription -->
+
+
+    <p class="h4 mb-4 text-default">Votre message</p>
+
+   
+
+    <div class="md-form">
+    {{ form_label(form.receiver)}}
+    {{ form_widget(form.receiver)}}
+    {{ form_errors(form.receiver)}}
+    </div>
+
+    <div class="md-form">
+    {{ form_label(form.body)}}
+    {{ form_widget(form.body)}}
+    {{ form_errors(form.body)}}
+    </div>
+
+   
+    
+    {{ form_end(form) }} 
+
+   <a href="{{ path('message_index') }}" class="text-default">Retour aux messages</a>  
+   
+
+<!-- Default form subscription -->
+  
+      
+
+
+   
+{% endblock %}

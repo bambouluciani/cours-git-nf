@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Page{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-8">
+            <h1 class="text-default ">Editer</h1>
+            <br><br>
+        </div>
+        <div class="col-4 text-right">
+            <a href="{{ path('page_index') }}" class="btn btn-default">Retour aux amis</a>
+        </div>
+            
+
+    </div>
+    {{ include('page/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    {{ include('page/_delete_form.html.twig') }}
+{% endblock %}

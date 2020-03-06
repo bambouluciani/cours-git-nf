@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des messages!{% endblock %}
+
+{% block body %}
+
+<h1 class="text-default">Mon message</h1>
+
+<div class="media-body">
+   {#} <h5 class="mt-0 font-weight-bold">Envoyé(e) par : {{ message.sender}}</h5>
+    <h5 class="mt-0 font-weight-bold">Pour : {{ message.receiver}}</h5>#}
+    <h6>Date : {{ message.createdAt|date('d-m-Y H:i')}}</h6>
+    <p>Message : {{ message.body}}</p>
+    
+  </div>
+  <a href="{{ path('message_index') }}" class="default-text">Retour aux messages</a>
+
+  {% endblock %}
